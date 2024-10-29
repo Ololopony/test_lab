@@ -7,6 +7,7 @@ public class CloudController : MonoBehaviour
     [SerializeField] private Transform m_cloud;
     [SerializeField] private Transform[] m_points;
     [SerializeField] private float m_speed = 10f;
+    [SerializeField] private GameObject m_rain;
 
     private int m_curPointIndex = -1;
     private bool m_isMove = false;
@@ -14,6 +15,7 @@ public class CloudController : MonoBehaviour
 
     public void MoveNext()
     {
+        m_rain.SetActive(false);
         if (m_curPointIndex >= 0)
         {
             m_curPointIndex++;
@@ -42,6 +44,7 @@ public class CloudController : MonoBehaviour
     {
         if (!m_isMove)
         {
+            m_rain.SetActive(true);
             return;
         }
 
