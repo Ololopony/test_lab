@@ -10048,6 +10048,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1015459319}
   - component: {fileID: 1015459318}
+  - component: {fileID: 1015459320}
   m_Layer: 0
   m_Name: CloudController
   m_TagString: Untagged
@@ -10077,7 +10078,7 @@ MonoBehaviour:
   - {fileID: 648544553}
   - {fileID: 6889718}
   m_speed: 2
-  m_rain: {fileID: 1549101018}
+  m_rain: {fileID: 1549101015}
 --- !u!4 &1015459319
 Transform:
   m_ObjectHideFlags: 0
@@ -10093,6 +10094,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1015459320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015459317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d83e312b45637594e9f3be2edd64fb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1015860476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1855710351377478, guid: 5c9211eb71cff4f4996a21d92317f601, type: 3}
