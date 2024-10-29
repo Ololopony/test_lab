@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class CloudController : MonoBehaviour
@@ -11,7 +12,6 @@ public class CloudController : MonoBehaviour
 
     private int m_curPointIndex = -1;
     private bool m_isMove = false;
-
 
     public void MoveNext()
     {

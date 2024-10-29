@@ -10077,7 +10077,7 @@ MonoBehaviour:
   - {fileID: 648544553}
   - {fileID: 6889718}
   m_speed: 2
-  m_rain: {fileID: 1549101015}
+  m_rain: {fileID: 1549101018}
 --- !u!4 &1015459319
 Transform:
   m_ObjectHideFlags: 0
