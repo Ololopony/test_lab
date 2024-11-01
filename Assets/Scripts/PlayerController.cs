@@ -6,25 +6,23 @@ namespace Golf
 {
     public class PlayerController : MonoBehaviour
     {
-        public Transform stick;
-        public float maxAngle = 30f;
-        public float speed = 50f;
-
-        private void Update()
+        public Stick stick;
+        private void Awake()
         {
-            Vector3 angle = stick.localEulerAngles;
+            Application.targetFrameRate = 30;
+        }
+
+        private void FixedUpdate()
+        {
+            
             if (Input.GetMouseButton(0))
             {
-                angle.z += speed * Time.deltaTime;
-                angle.z = Mathf.Min(angle.z, maxAngle);
+                stick.Down();
             }
             else
             {
-                angle.z -= speed * Time.deltaTime;
-                angle.z = Mathf.Max(angle.z, -maxAngle);
+                stick.Up();
             }
-
-            stick.localEulerAngles = angle;
         }
     }
 }
