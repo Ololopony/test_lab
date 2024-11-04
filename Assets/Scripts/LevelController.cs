@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Golf;
 using UnityEngine;
 
 namespace Golf
@@ -10,20 +11,23 @@ namespace Golf
         public Stick stick;
         public StoneSpawner stoneSpawner;
         private float m_timer;
-        [SerializeField] float m_delay = 2f;
+        [SerializeField]
+        private float m_delay = 2f;
+        private uint m_score = 0;
+
         private List<Stone> m_stones = new List<Stone>();
 
         public void OnEnable()
         {
             m_timer = Time.time - m_delay;
-            stick.onCollitionStone += OnCollisionStick;
+            stick.onCollisionStone += OnCollisionStick;
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
-            if (stick != null)
+            if (stick)
             {
-                stick.onCollitionStone -= OnCollisionStone;
+                stick.onCollisionStone -= OnCollisionStone;
             }
         }
 
@@ -36,20 +40,22 @@ namespace Golf
                 var go = stoneSpawner.Spawn();
                 var stone = go.GetComponent<Stone>();
 
-                stone.onCollitionStone += OnCollisionStone;
+                stone.onCollisionStone += OnCollisionStone;
 
                 m_stones.Add(stone);
             }
-        }
 
-        private void OnCollisionStone()
-        {
-            Debug.Log("Game Over");
         }
 
         private void OnCollisionStick()
         {
-            Debug.Log("OnCollisionStick");
+            m_score++; 
+            Debug.Log($"score: {m_score}");
+        }
+
+        private void OnCollisionStone()
+        {
+            Debug.Log("GAME OVER!!!");
         }
     }
 }
