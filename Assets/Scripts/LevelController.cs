@@ -12,7 +12,7 @@ namespace Golf
         public StoneSpawner stoneSpawner;
         private float m_timer;
         [SerializeField]
-        private float m_delay = 2f;
+        private float m_delay = 10f;
         private uint m_score = 0;
 
         private List<Stone> m_stones = new List<Stone>();
