@@ -12,12 +12,12 @@ namespace Golf
             gameObject.SetActive(true);
         }
 
-        void OnEnable()
+        private void OnEnable()
         {
             rootUI.SetActive(true);
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
             rootUI.SetActive(false);
         }

@@ -1147,9 +1147,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fd7a07909cfea042acd5f38871ebc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenuUI: {fileID: 0}
-  gamePlayState: {fileID: 0}
-  scoreText: {fileID: 0}
+  mainMenuUI: {fileID: 9177273}
+  gamePlayState: {fileID: 506241830}
+  scoreText: {fileID: 1768145839}
 --- !u!1001 &272116677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1699,6 +1699,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1b4adc7482e1d439d1eceb9812dbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverState: {fileID: 0}
+  playerController: {fileID: 0}
+  levelController: {fileID: 0}
+  rootUI: {fileID: 0}
+  scoreText: {fileID: 0}
 --- !u!1001 &518986370
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2377,7 +2382,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &626244648
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3735,7 +3740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &964426285
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5189,6 +5194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d1e7c40d6eb114da77ab7e8b41ad9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rootUI: {fileID: 0}
 --- !u!1001 &1500069761
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6565,6 +6571,7 @@ GameObject:
   - component: {fileID: 1766259212}
   - component: {fileID: 1766259211}
   - component: {fileID: 1766259210}
+  - component: {fileID: 1766259213}
   m_Layer: 5
   m_Name: Hit
   m_TagString: Untagged
@@ -6674,6 +6681,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766259208}
   m_CullTransparentMesh: 1
+--- !u!114 &1766259213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1766259208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &1767446351
 GameObject:
   m_ObjectHideFlags: 0
