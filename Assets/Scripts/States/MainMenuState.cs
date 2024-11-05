@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Golf
 {
@@ -11,21 +12,22 @@ namespace Golf
         public GamePlayState gamePlayState;
         public TextMeshProUGUI scoreText;
 
-        void OnEnable()
+        private void OnEnable()
         {
             mainMenuUI.SetActive(true);
-            scoreText.text = $"TOP SCORE: {GameInstance.score}";            
+
+            scoreText.text = $"TOP SCORE: {GameInstance.score}";
         }
 
-        void OnDisable()
+        private void OnDisable()
         {
-            mainMenuUI.SetActive(false);    
+            mainMenuUI.SetActive(false);
         }
 
         public void Play()
         {
-            this.gameObject.SetActive(false);
-            gamePlayState.Play();
+            gameObject.SetActive(false);
+            gamePlayState.gameObject.SetActive(true);
         }
     }
 }

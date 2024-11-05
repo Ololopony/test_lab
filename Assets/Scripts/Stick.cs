@@ -7,8 +7,8 @@ namespace Golf
     {
         public float maxAngle = 30f;
         public float speed = 360f;
-        public float power = 20f;
-        public Transform pointCube;
+        public float power = 100f;
+        public Transform point;
         public event System.Action onCollisionStone;
 
         private Vector3 m_lastPointPosition;
@@ -45,8 +45,8 @@ namespace Golf
             }
             transform.localEulerAngles = angle;
 
-            m_dir = (pointCube.position - m_lastPointPosition).normalized;
-            m_lastPointPosition = pointCube.position;
+            m_dir = (point.position - m_lastPointPosition).normalized;
+            m_lastPointPosition = point.position;
         }
 
         private void OnCollisionEnter(Collision other)
@@ -54,7 +54,7 @@ namespace Golf
             if (other.gameObject.TryGetComponent<Stone>(out var stone) && !stone.isDirty)
             {
                 stone.isDirty = true;
-                var contact = other.contacts[0];
+                // var contact = other.contacts[0];
                 other.rigidbody.AddForce(m_dir * power, ForceMode.Impulse);
                 onCollisionStone?.Invoke();
             }

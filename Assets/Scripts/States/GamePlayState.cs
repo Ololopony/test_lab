@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 namespace Golf
@@ -11,7 +11,7 @@ namespace Golf
         public PlayerController playerController;
         public LevelController levelController;
         public GameObject rootUI;
-        public TextMeshProUGUI scoreText;
+        public TMPro.TextMeshProUGUI scoreText;
 
         private void OnEnable()
         {
@@ -25,27 +25,40 @@ namespace Golf
             OnScoreInc(0);
         }
 
-        private void OnGameOver()
+       
+
+        private void OnDisable()
         {
-            gameObject.SetActive(false);
-            gameOverState.Show();
+            if (rootUI)
+            {
+                rootUI.SetActive(false);
+            }
+
+            if (playerController)
+            {
+                playerController.enabled = false;
+            }
+            
+            if (levelController)
+            {
+                levelController.enabled = false;
+                levelController.onGameOver -= OnGameOver;
+                levelController.onScoreInc -= OnScoreInc;
+            }
         }
 
-        private void OnScoreInc(uint score)
+        private void OnScoreInc(int score)
         {
             scoreText.text = $"SCORE: {score}";
         }
 
-        private void OnDisable()
+        private void OnGameOver(int score)
         {
-            rootUI.SetActive(false);
-            playerController.enabled = false;
-            levelController.enabled = false;
-        }
+            GameInstance.score = Mathf.Max(GameInstance.score, score);
 
-        public void Play()
-        {
-            gameObject.SetActive(true);
+            gameObject.SetActive(false);
+
+            gameOverState.gameObject.SetActive(true);
         }
     }
 }
