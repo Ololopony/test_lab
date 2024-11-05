@@ -20,8 +20,6 @@ public class StoneSpawner : MonoBehaviour
 
     public GameObject Spawn()
     {
-        int index = Random.Range(0, m_Prefabs.Length);
-
-        return Instantiate(m_Prefabs[index], m_point.position, m_point.rotation);
+        return Instantiate(m_Prefabs[0], m_point.position, m_point.rotation);
     }
 }
