@@ -44,6 +44,9 @@ namespace Golf
                 angle.z = Mathf.MoveTowardsAngle(angle.z, maxAngle, speed * Time.deltaTime);
             }
             transform.localEulerAngles = angle;
+
+            m_dir = (pointCube.position - m_lastPointPosition).normalized;
+            m_lastPointPosition = pointCube.position;
         }
 
         private void OnCollisionEnter(Collision other)
@@ -52,7 +55,7 @@ namespace Golf
             {
                 stone.isDirty = true;
                 var contact = other.contacts[0];
-                other.rigidbody.AddForce(-contact.normal * power, ForceMode.Impulse);
+                other.rigidbody.AddForce(m_dir * power, ForceMode.Impulse);
                 onCollisionStone?.Invoke();
             }
         }
