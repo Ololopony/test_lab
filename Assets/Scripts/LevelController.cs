@@ -8,6 +8,7 @@ namespace Golf
 {
     public class LevelController : MonoBehaviour
     {
+        public SoundController soundController;
         public Stick stick;
         public StoneSpawner stoneSpawner;
         private float m_timer;
@@ -58,14 +59,23 @@ namespace Golf
                 var stone = go.GetComponent<Stone>();
 
                 stone.onCollisionStone += OnCollisionStone;
+                stone.onEnterTriggerWall += OnBonusWallTrigger;
 
                 m_stones.Add(stone);
             }
 
         }
 
+        private void OnBonusWallTrigger()
+        {
+            m_score++;
+            Debug.Log($"bonus score: {m_score}");
+            onScoreInc?.Invoke(m_score);
+        }
+
         private void OnCollisionStick()
         {
+            soundController.PlayAudio(soundController.rockHitAudio);
             m_score++; 
             Debug.Log($"score: {m_score}");
             onScoreInc?.Invoke(m_score);

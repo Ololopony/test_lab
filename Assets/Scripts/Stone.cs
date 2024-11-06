@@ -8,7 +8,9 @@ namespace Golf
     public class Stone : MonoBehaviour
     {
         public event Action onCollisionStone;
+        public event Action onEnterTriggerWall;
         public bool isDirty = false;
+        public bool isInWall = false;
 
         private void OnCollisionEnter(Collision other)
         {
@@ -22,6 +24,21 @@ namespace Golf
                 stone.isDirty = true;
 
                 onCollisionStone?.Invoke();
+            }
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (isInWall)
+            {
+                return;
+            }
+
+            if (other.gameObject.TryGetComponent<Stone>(out var stone))
+            {
+                stone.isInWall = true;
+
+                onEnterTriggerWall?.Invoke();
             }
         }
     }

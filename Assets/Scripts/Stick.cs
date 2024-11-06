@@ -54,7 +54,6 @@ namespace Golf
             if (other.gameObject.TryGetComponent<Stone>(out var stone) && !stone.isDirty)
             {
                 stone.isDirty = true;
-                // var contact = other.contacts[0];
                 other.rigidbody.AddForce(m_dir * power, ForceMode.Impulse);
                 onCollisionStone?.Invoke();
             }
