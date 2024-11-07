@@ -30,5 +30,10 @@ namespace Golf
         {
             onEnterTriggerWall?.Invoke();
         }
+
+        private void OnBecameInvisible()
+        {
+            Destroy(gameObject);
+        }
     }
 }

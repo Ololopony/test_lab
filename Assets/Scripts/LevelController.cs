@@ -9,6 +9,7 @@ namespace Golf
 {
     public class LevelController : MonoBehaviour
     {
+        public MainCameraScript cam;
         private static GameDiff m_gameDiff;
         public SoundController soundController;
         public Stick stick;
@@ -27,7 +28,6 @@ namespace Golf
             //string json = JsonUtility.ToJson(gameDiff);
             //File.WriteAllText(Application.dataPath + "/DifficultySettings/difficultyFile.json", json);
             string json = File.ReadAllText(Application.dataPath + "/DifficultySettings/difficultyFile.json");
-            Debug.Log(json);
             m_gameDiff = JsonUtility.FromJson<GameDiff>(json);
         }
 
@@ -52,7 +52,10 @@ namespace Golf
         {
             foreach (var stone in m_stones)
             {
-                Destroy(stone.gameObject);
+                if (stone)
+                {
+                    Destroy(stone.gameObject);
+                }
             }
 
             m_stones.Clear();
@@ -79,7 +82,6 @@ namespace Golf
                     m_gameDiff.delay -= m_gameDiff.stepDelay;
                 }
             }
-
         }
 
         private void OnBonusWallTrigger()
