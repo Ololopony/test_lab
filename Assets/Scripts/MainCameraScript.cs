@@ -33,13 +33,11 @@ namespace Golf
             if (mainMenuState.activeSelf == true)
             {
                 Move(mainMenuDest);
-                Debug.Log("menu");
             }
 
             if (gamePlayState.activeSelf == true)
             {
                 Move(gamePlatDest);
-                Debug.Log("game");
             }
         }
 

@@ -7,6 +7,7 @@ namespace Golf
     public class GameInstance : MonoBehaviour
     {
         public static int score = 0;
+        public static bool scoredMore = false;
 
         public Transform states;
 

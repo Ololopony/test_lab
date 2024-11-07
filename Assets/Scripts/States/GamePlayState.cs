@@ -7,7 +7,6 @@ namespace Golf
 {
     public class GamePlayState : MonoBehaviour
     {
-        public StoneSpawner stoneSpawner;
         public GameOverState gameOverState;
         public PlayerController playerController;
         public LevelController levelController;
@@ -55,6 +54,10 @@ namespace Golf
 
         private void OnGameOver(int score)
         {
+            if (score > GameInstance.score)
+            {
+                GameInstance.scoredMore = true;
+            }
             GameInstance.score = Mathf.Max(GameInstance.score, score);
 
             gameObject.SetActive(false);
