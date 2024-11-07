@@ -7,6 +7,7 @@ namespace Golf
 {
     public class GamePlayState : MonoBehaviour
     {
+        public MainMenuState mainMenuState;
         public GameOverState gameOverState;
         public PlayerController playerController;
         public LevelController levelController;

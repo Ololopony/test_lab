@@ -10,7 +10,6 @@ namespace Golf
         public event Action onCollisionStone;
         public event Action onEnterTriggerWall;
         public bool isDirty = false;
-        public bool isInWall = false;
 
         private void OnCollisionEnter(Collision other)
         {
@@ -29,17 +28,7 @@ namespace Golf
 
         private void OnTriggerEnter(Collider other)
         {
-            if (isInWall)
-            {
-                return;
-            }
-
-            if (other.gameObject.TryGetComponent<Stone>(out var stone))
-            {
-                stone.isInWall = true;
-
-                onEnterTriggerWall?.Invoke();
-            }
+            onEnterTriggerWall?.Invoke();
         }
     }
 }

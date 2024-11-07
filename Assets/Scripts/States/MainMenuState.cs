@@ -8,6 +8,7 @@ namespace Golf
 {
     public class MainMenuState : MonoBehaviour
     {
+        public SettingsMenuState settingsMenuState;
         public GameObject mainMenuUI;
         public GamePlayState gamePlayState;
         public TextMeshProUGUI scoreText;
@@ -21,13 +22,22 @@ namespace Golf
 
         private void OnDisable()
         {
-            mainMenuUI.SetActive(false);
+            if (mainMenuUI)
+            {
+                mainMenuUI.SetActive(false);
+            }
         }
 
         public void Play()
         {
             gameObject.SetActive(false);
             gamePlayState.gameObject.SetActive(true);
+        }
+
+        public void ToSettings()
+        {
+            gameObject.SetActive(false);
+            settingsMenuState.gameObject.SetActive(true);
         }
     }
 }

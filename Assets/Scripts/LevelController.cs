@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Golf;
 using UnityEngine;
 
@@ -8,12 +9,12 @@ namespace Golf
 {
     public class LevelController : MonoBehaviour
     {
+        private static GameDiff m_gameDiff;
         public SoundController soundController;
         public Stick stick;
         public StoneSpawner stoneSpawner;
         private float m_timer;
-        [SerializeField]
-        private float m_delay = 2f;
+        private int m_stonesByTen = 0;
         private int m_score = 0;
 
         private List<Stone> m_stones = new List<Stone>();
@@ -21,9 +22,17 @@ namespace Golf
         public event Action<int> onGameOver;
         public event Action<int> onScoreInc;
 
+        private void Start()
+        {
+            //string json = JsonUtility.ToJson(gameDiff);
+            //File.WriteAllText(Application.dataPath + "/DifficultySettings/difficultyFile.json", json);
+            string json = File.ReadAllText(Application.dataPath + "/DifficultySettings/difficultyFile.json");
+            Debug.Log(json);
+            m_gameDiff = JsonUtility.FromJson<GameDiff>(json);
+        }
+
         public void OnEnable()
         {
-            m_timer = Time.time - m_delay;
             stick.onCollisionStone += OnCollisionStick;
 
             m_score = 0;
@@ -51,7 +60,7 @@ namespace Golf
 
         private void Update()
         {
-            if (Time.time > m_timer + m_delay)
+            if (Time.time > m_timer + m_gameDiff.delay)
             {
                 m_timer = Time.time;
 
@@ -62,6 +71,13 @@ namespace Golf
                 stone.onEnterTriggerWall += OnBonusWallTrigger;
 
                 m_stones.Add(stone);
+                m_stonesByTen++;
+
+                if (m_stonesByTen == 10 && m_gameDiff.delay != m_gameDiff.maxDelayChange)
+                {
+                    m_stonesByTen = 0;
+                    m_gameDiff.delay -= m_gameDiff.stepDelay;
+                }
             }
 
         }
