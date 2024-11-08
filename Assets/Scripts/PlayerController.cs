@@ -8,18 +8,6 @@ namespace Golf
         public Stick stick;
         public GolfAnimatorController golfAnimator;
 
-        private void FixedUpdate()
-        {
-            // if (Input.GetMouseButton(0))
-            // {   
-            //     PointerDown();
-            // }
-            // else
-            // {
-            //     PointerUp();
-            // }
-        }
-
         public void PointerDown()
         {
             soundController.PlayAudio(soundController.swingAudio);
