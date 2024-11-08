@@ -5643,7 +5643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_point: {fileID: 0}
   m_Prefabs:
-  - {fileID: 1290125285081394, guid: 775ca1d6bef4b5a4d9ab7bcf1054047b, type: 3}
+  - {fileID: 1290125285081394, guid: 19cc1e084bdba0c488fdd722770a6161, type: 3}
 --- !u!4 &1107345558
 Transform:
   m_ObjectHideFlags: 0
@@ -11534,6 +11534,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 505185460827730417, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_Quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -540341484401439474, guid: 710767f33357e7746886ce660d34ff9d, type: 3}
