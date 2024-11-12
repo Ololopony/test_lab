@@ -13,6 +13,7 @@ namespace Golf
 
         private void OnEnable()
         {
+            Application.targetFrameRate = 300;
             score = PlayerPrefs.GetInt("TopScore");
         }
 
