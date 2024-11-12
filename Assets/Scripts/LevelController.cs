@@ -27,7 +27,8 @@ namespace Golf
         {
             //string json = JsonUtility.ToJson(gameDiff);
             //File.WriteAllText(Application.dataPath + "/DifficultySettings/difficultyFile.json", json);
-            string json = File.ReadAllText(Application.dataPath + "/DifficultySettings/difficultyFile.json");
+            var asset = Resources.Load<TextAsset>("DifficultySettings/difficultyFile");
+            string json = asset.text;
             m_gameDiff = JsonUtility.FromJson<GameDiff>(json);
         }
 

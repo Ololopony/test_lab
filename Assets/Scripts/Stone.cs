@@ -33,7 +33,7 @@ namespace Golf
 
         private void OnBecameInvisible()
         {
-            Destroy(gameObject);
+           Destroy(gameObject);
         }
     }
 }

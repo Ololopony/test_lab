@@ -8,7 +8,7 @@ public class StoneSpawner : MonoBehaviour
     private Transform m_point;
     
     [SerializeField]
-    private GameObject[] m_Prefabs;
+    private GameObject m_Prefab;
 
     private void Start()
     {
@@ -20,6 +20,6 @@ public class StoneSpawner : MonoBehaviour
 
     public GameObject Spawn()
     {
-        return Instantiate(m_Prefabs[0], m_point.position, m_point.rotation);
+        return Instantiate(m_Prefab, m_point.position, m_point.rotation);
     }
 }
